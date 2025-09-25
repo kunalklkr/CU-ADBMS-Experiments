@@ -13,7 +13,7 @@ VALUES
 (2, 'Smaran', 'CSE102', '2024-06-01'),
 (3, 'Vaibhav', 'CSE103', '2024-06-01');
 
--- PART A: Simulating Deadlock
+-- Simulating Deadlock
 START TRANSACTION;
 UPDATE StudentEnrollments SET course_id='CSE201' WHERE student_id=1;
 SELECT SLEEP(1);
@@ -26,7 +26,7 @@ UPDATE StudentEnrollments SET course_id='CSE202' WHERE student_id=2;
 UPDATE StudentEnrollments SET course_id='CSE302' WHERE student_id=1;
 COMMIT;
 
--- PART B: MVCC Read/Write Demonstration
+-- MVCC Read/Write Demonstration
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
 START TRANSACTION;
@@ -40,7 +40,7 @@ COMMIT;
 SELECT enrollment_date FROM StudentEnrollments WHERE student_id=1;
 COMMIT;
 
--- PART C: Comparing Locking vs MVCC
+-- Comparing Locking vs MVCC
 
 -- Without MVCC
 START TRANSACTION;
