@@ -12,7 +12,7 @@ VALUES
 (2, 'Smaran', 'CSE102', '2024-07-01'),
 (3, 'Vaibhav', 'CSE101', '2024-07-01');
 
---Prevent Duplicate Enrollments
+-- Prevent Duplicate Enrollments
 START TRANSACTION;
 INSERT INTO StudentEnrollments VALUES (4, 'Ashish', 'CSE101', '2024-07-02');
 COMMIT;
@@ -20,7 +20,7 @@ START TRANSACTION;
 INSERT INTO StudentEnrollments VALUES (5, 'Ashish', 'CSE101', '2024-07-03');
 COMMIT;
 
---Lock Student Record Using SELECT FOR UPDATE
+-- Lock Student Record Using SELECT FOR UPDATE
 START TRANSACTION;
 SELECT *
 FROM StudentEnrollments
@@ -33,7 +33,7 @@ SET enrollment_date = '2024-08-01'
 WHERE student_name = 'Ashish' AND course_id = 'CSE101';
 COMMIT;
 
---Demonstrate Locking Preserving Consistency
+-- Demonstrate Locking Preserving Consistency
 START TRANSACTION;
 
 SELECT *
